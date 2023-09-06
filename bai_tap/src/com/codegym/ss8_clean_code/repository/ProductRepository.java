@@ -67,7 +67,7 @@ public class ProductRepository implements IProductRepository{
     //tìm sp
     public void searchProduct(String name) {
         for (int i = 0; i < products.length; i++) {
-            if (products[i].getName() == name) {
+            if (products[i].getName().contains(name)) {
                 System.out.println("sp can tim la: " + products[i]);
                 break;
             }
