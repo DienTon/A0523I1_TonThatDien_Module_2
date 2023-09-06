@@ -1,7 +1,7 @@
 package com.codegym.ss7_interface_abtract.interface_colorable;
 
 
-public class Square extends Shape implements Colorable {
+public class Square extends Shape implements IColorable {
     private double edge = 1.0;
 
     public Square() {

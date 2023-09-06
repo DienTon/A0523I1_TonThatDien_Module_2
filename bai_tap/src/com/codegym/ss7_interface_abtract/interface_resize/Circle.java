@@ -1,6 +1,6 @@
 package com.codegym.ss7_interface_abtract.interface_resize;
 
-public class Circle extends Shape implements Resizeable {
+public class Circle extends Shape implements IResizeable {
     private double radius = 1.0;
 
     public Circle() {

@@ -1,6 +1,6 @@
 package com.codegym.ss7_interface_abtract.interface_resize;
 
-public class Square extends Shape implements Resizeable {
+public class Square extends Shape implements IResizeable {
     double length=1.0;
     protected Square(){
 

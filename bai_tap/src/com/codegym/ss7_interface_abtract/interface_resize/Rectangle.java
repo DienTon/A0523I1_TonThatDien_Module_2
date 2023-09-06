@@ -1,7 +1,8 @@
 package com.codegym.ss7_interface_abtract.interface_resize;
 
-public class Rectangle extends Shape implements Resizeable {
+public class Rectangle extends Shape implements IResizeable {
     private double width = 1.0;
+
     private double length = 1.0;
 
     public Rectangle() {

@@ -1,5 +1,5 @@
 package com.codegym.ss7_interface_abtract.interface_resize;
 
-public interface Resizeable {
+public interface IResizeable {
     void resize(double percent);
 }
