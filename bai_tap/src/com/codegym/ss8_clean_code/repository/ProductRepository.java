@@ -4,14 +4,14 @@ import com.codegym.ss8_clean_code.model.Product;
 
 import java.util.Scanner;
 
-public class ProductRepository implements IProductRepository{
+public class ProductRepository implements IProductRepository {
     Product[] products = new Product[100];
 
 
     //hiển thị sản phẩm
     public void displayProduct() {
         for (int i = 0; i < products.length; i++) {
-            if (products[i] != null){
+            if (products[i] != null) {
                 System.out.println(products[i]);
             }
         }
@@ -20,7 +20,7 @@ public class ProductRepository implements IProductRepository{
     //thêm sản phẩm
     public void addProduct(Product product) {
         for (int i = 0; i < products.length; i++) {
-            if (products[i] == null){
+            if (products[i] == null) {
                 products[i] = product;
                 break;
             }
@@ -46,7 +46,7 @@ public class ProductRepository implements IProductRepository{
         String id, name, productDescription;
         int price;
         for (int i = 0; i < products.length; i++) {
-            if (products[i].getId() == idS){
+            if (products[i].getId() == idS) {
                 System.out.print("Nhập id: ");
                 id = sc.nextLine();
                 System.out.print("\nNhập name: ");
@@ -58,7 +58,8 @@ public class ProductRepository implements IProductRepository{
                 Product newProduct = new Product(id, name, productDescription, price);
                 products[i] = newProduct;
                 break;
-            }if (i == products.length-1){
+            }
+            if (i == products.length - 1) {
                 System.out.println("sp ko ton tai");
             }
         }

@@ -9,11 +9,12 @@ import java.util.Scanner;
 public class ProductService implements IProductService {
     IProductRepository productRepository = new ProductRepository();
     Scanner sc = new Scanner(System.in);
-    String id, name, productDescription;
-    int price;
+
 
     @Override
     public void add() {
+        String id, name, productDescription;
+        int price;
         System.out.println("-------------thêm sp-------------");
         System.out.print("Nhập id: ");
         id = sc.nextLine();
@@ -34,6 +35,7 @@ public class ProductService implements IProductService {
 
     @Override
     public void removeById() {
+        String id;
         System.out.print("Nhap id sp can xoa: ");
         id = sc.nextLine();
         productRepository.removeProduct(id);
@@ -41,6 +43,7 @@ public class ProductService implements IProductService {
 
     @Override
     public void updateById() {
+        String id;
         System.out.println("----------UPDATE----------");
         System.out.print("Nhap id can update: "); id = sc.nextLine();
         productRepository.updateProduct(id);
@@ -49,6 +52,7 @@ public class ProductService implements IProductService {
 
     @Override
     public void search() {
+        String name;
         System.out.print("Nhap ten sp can tim: ");
         name = sc.nextLine();
         productRepository.searchProduct(name);
