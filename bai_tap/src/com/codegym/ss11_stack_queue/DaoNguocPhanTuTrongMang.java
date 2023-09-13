@@ -1,5 +1,7 @@
 package com.codegym.ss11_stack_queue;
 
+import com.codegym.ss3_array.NhapXuat;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
