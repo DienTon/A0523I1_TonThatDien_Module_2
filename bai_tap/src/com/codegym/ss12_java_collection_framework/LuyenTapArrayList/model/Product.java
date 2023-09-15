@@ -1,4 +1,4 @@
-package com.codegym.ss12_java_collection_framework.LuyenTapArrayList;
+package com.codegym.ss12_java_collection_framework.LuyenTapArrayList.model;
 
 public class Product {
     private String id,name;

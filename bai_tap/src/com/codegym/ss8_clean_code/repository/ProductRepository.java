@@ -5,7 +5,7 @@ import com.codegym.ss8_clean_code.model.Product;
 import java.util.Scanner;
 
 public class ProductRepository implements IProductRepository {
-    Product[] products = new Product[100];
+    private static Product[] products = new Product[100];
 
 
     //hiển thị sản phẩm
