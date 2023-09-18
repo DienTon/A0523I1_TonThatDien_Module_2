@@ -1,12 +1,14 @@
 package com.codegym.ss12_java_collection_framework.LuyenTapArrayList.repository;
 
+import com.codegym.ss12_java_collection_framework.LuyenTapArrayList.model.ComparaToLow;
+import com.codegym.ss12_java_collection_framework.LuyenTapArrayList.model.CompareToHight;
 import com.codegym.ss12_java_collection_framework.LuyenTapArrayList.model.Product;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductRepository extends Product {
     private static ArrayList<Product> products = new ArrayList<>();
+
 
     static {
         products.add(new Product("001", "sting", 10000));
@@ -57,26 +59,15 @@ public class ProductRepository extends Product {
     }
 
     public void sortProductUp() {
+        Comparator<Product> comparator = Collections.reverseOrder();
         System.out.println("=====sap xep=====");
-        for (int i = 1; i < products.size(); i++) {
-            if ((products.get(i)).getPrice() < (products.get(i - 1)).getPrice()) {
-                Product temp = products.get(i);
-                products.set(i, products.get(i - 1));
-                products.set(i - 1, temp);
-            }
-        }
+        Collections.sort(products, new CompareToHight());
         displayProduct();
     }
 
     public void sortProductDown() {
         System.out.println("=====sap xep giam dan=====");
-        for (int i = 0; i < products.size() - 1; i++) {
-            if ((products.get(i)).getPrice() < (products.get(i + 1)).getPrice()) {
-                Product temp = products.get(i);
-                products.set(i, products.get(i + 1));
-                products.set(i + 1, temp);
-            }
-        }
+        Collections.sort(products,new ComparaToLow());
         displayProduct();
     }
 }
