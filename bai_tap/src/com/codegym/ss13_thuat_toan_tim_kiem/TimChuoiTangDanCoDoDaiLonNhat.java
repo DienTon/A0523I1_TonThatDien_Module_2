@@ -10,11 +10,10 @@ public class TimChuoiTangDanCoDoDaiLonNhat {
         String str = input.nextLine();
 
         LinkedList<Character> max = new LinkedList<>();
-
         for (int i = 0; i < str.length(); i++) {
             LinkedList<Character> list = new LinkedList<>();
             list.add(str.charAt(i));
-            for (int j = 0; j < str.length(); j++) {
+            for (int j = i+1; j < str.length(); j++) {
                 if(str.charAt(j) > list.getLast()){
                     list.add(str.charAt(j));
                 }
@@ -26,8 +25,7 @@ public class TimChuoiTangDanCoDoDaiLonNhat {
             list.clear();
         }
         for (Character ch: max) {
-            System.out.println(ch);
+            System.out.print(ch);
         }
-        System.out.println();
     }
 }
