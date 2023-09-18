@@ -5,11 +5,11 @@ import com.codegym.ss3_array.NhapXuat;
 public class MinhHoaSapXepChen {
     public void insertionSort(int[] array){
         int pos, x;
-        for(int i = 1; i < array.length; i++){ //đoạn array[0] đã sắp xếp
+        for(int i = 1; i < array.length; i++){
             x = array[i];
             pos = i;
             while(pos > 0 && x < array[pos-1]){
-                array[pos] = array[pos-1]; // đổi chỗ
+                array[pos] = array[pos-1];
                 pos--;
             }
             array[pos] = x;
