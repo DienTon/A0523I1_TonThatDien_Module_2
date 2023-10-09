@@ -1,14 +1,13 @@
-package com.codegym.case_study.model;
+package com.codegym.case_study.model.person;
 
 public class Person {
-    private String id, name, ngaySinh, email;
-    private boolean gioiTinh;
+    private String id, name, ngaySinh, email,gioiTinh;
     private int sdt;
 
     public Person() {
     }
 
-    public Person(String id, String name, String ngaySinh, String email, boolean gioiTinh, int sdt) {
+    public Person(String id, String name, String ngaySinh, String email, String gioiTinh, int sdt) {
         this.id = id;
         this.name = name;
         this.ngaySinh = ngaySinh;
@@ -49,11 +48,11 @@ public class Person {
         this.email = email;
     }
 
-    public boolean isGioiTinh() {
+    public String isGioiTinh() {
         return gioiTinh;
     }
 
-    public void setGioiTinh(boolean gioiTinh) {
+    public void setGioiTinh(String gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
 
@@ -71,7 +70,7 @@ public class Person {
                 "," + name +
                 "," + ngaySinh +
                 "," + email +
-                "," + (gioiTinh ? "Nam" : "Nu") +
+                "," + gioiTinh +
                 "," + sdt +
                 ",";
     }

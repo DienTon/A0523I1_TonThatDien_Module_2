@@ -1,9 +1,14 @@
 package com.codegym.case_study.controller;
 
+import com.codegym.case_study.service.impl.CustomerService;
+import com.codegym.case_study.service.impl.EmployeeService;
+
 import java.util.Scanner;
 
 public class FurumaController {
     Scanner scanner = new Scanner(System.in);
+    EmployeeService employeeService = new EmployeeService();
+    CustomerService customerService = new CustomerService();
 
     public void displayMainMenu() {
         System.out.println("1. Employee Management\n" +
@@ -48,12 +53,16 @@ public class FurumaController {
             switch (choice) {
                 case 1:
                     System.out.println("display list");
+                    employeeService.displayEmloyee();
                     break;
                 case 2:
                     System.out.println("Add new employee");
+                    employeeService.addEmloyee();
                     break;
                 case 3:
-                    System.out.println("Edit employee");break;
+                    System.out.println("Edit employee");
+                    employeeService.editEmloyee();
+                    break;
                 case 4:
                     displayMainMenu();
             }
@@ -73,12 +82,16 @@ public class FurumaController {
             switch (choice) {
                 case 1:
                     System.out.println("display list");
+                    customerService.displayCustomer();
                     break;
                 case 2:
                     System.out.println("Add new employee");
+                    customerService.addCustomer();
                     break;
                 case 3:
-                    System.out.println("Edit employee");break;
+                    System.out.println("Edit employee");
+                    customerService.editCustomer();
+                    break;
                 case 4:
                     displayMainMenu();
             }
@@ -103,7 +116,8 @@ public class FurumaController {
                     System.out.println("Add new employee");
                     break;
                 case 3:
-                    System.out.println("Edit employee");break;
+                    System.out.println("Edit employee");
+                    break;
                 case 4:
                     displayMainMenu();
             }
@@ -129,7 +143,8 @@ public class FurumaController {
                     System.out.println("Add new employee");
                     break;
                 case 3:
-                    System.out.println("Edit employee");break;
+                    System.out.println("Edit employee");
+                    break;
                 case 4:
                     displayMainMenu();
             }
@@ -152,7 +167,8 @@ public class FurumaController {
                     System.out.println("Add new employee");
                     break;
                 case 3:
-                    System.out.println("Edit employee");break;
+                    System.out.println("Edit employee");
+                    break;
                 case 4:
                     displayMainMenu();
             }

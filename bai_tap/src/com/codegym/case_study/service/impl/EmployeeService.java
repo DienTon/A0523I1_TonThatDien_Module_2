@@ -1,9 +1,10 @@
 package com.codegym.case_study.service.impl;
 
-import com.codegym.case_study.model.Employee;
+import com.codegym.case_study.model.person.Employee;
 import com.codegym.case_study.reprository.impl.EmployeeRepository;
 import com.codegym.case_study.service.IEmployeeService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeService implements IEmployeeService {
@@ -17,24 +18,32 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public void addEmloyee() {
         Scanner sc = new Scanner(System.in);
-        String id, name, ngaySinh, email, trinhDo, viTri, luong;
-        boolean gioiTinh;
+        String id, name, ngaySinh, email, trinhDo, viTri, luong, gioiTinh;
         int sdt;
         System.out.println("---------- ADD NEW EMLOYEE ----------");
-            System.out.print("Nhap id moi: "); id = sc.next();
-        while(isEmployeeCodeValid(id) != true){
+        System.out.print("Nhap id moi: ");
+        id = sc.nextLine();
+        while (isEmployeeCodeValid(id) != true) {
             System.out.print("id khong dung dinh dang NV-YYYY, vui long nhap lai: ");
-            id = sc.next();
+            id = sc.nextLine();
         }
-        System.out.print("Nhap ten moi: "); name = sc.next();
-        System.out.print("Nhap ngay sinh moi: "); ngaySinh = sc.next();
-        System.out.print("Nhap email moi: "); email = sc.next();
-        System.out.print("Nhap Gioi Tinh moi: "); gioiTinh = sc.nextBoolean();
-        System.out.print("Nhap sdt moi: "); sdt = sc.nextInt();
-        System.out.print("Nhap Vi tri moi: "); viTri = sc.next();
-        System.out.print("Nhap trinh do moi: "); trinhDo = sc.next();
-        System.out.print("Nhap luong moi: "); luong = sc.next();
-        Employee employee = new Employee(id,name,ngaySinh,email,gioiTinh,sdt,viTri,trinhDo,luong);
+        System.out.print("Nhap ten moi: ");
+        name = sc.nextLine();
+        System.out.print("Nhap ngay sinh moi: ");
+        ngaySinh = sc.nextLine();
+        System.out.print("Nhap email moi: ");
+        email = sc.nextLine();
+        System.out.print("Nhap Gioi Tinh moi: ");
+        gioiTinh = sc.nextLine();
+        System.out.print("Nhap sdt moi: ");
+        sdt = sc.nextInt();
+        System.out.print("Nhap Vi tri moi: ");
+        viTri = sc.nextLine();
+        System.out.print("Nhap trinh do moi: ");
+        trinhDo = sc.nextLine();
+        System.out.print("Nhap luong moi: ");
+        luong = sc.nextLine();
+        Employee employee = new Employee(id, name, ngaySinh, email, gioiTinh, sdt, trinhDo, viTri, luong);
         employeeRepository.addEmloyee(employee);
         displayEmloyee();
 
@@ -43,49 +52,62 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void editEmloyee() {
+        List<Employee> employees = employeeRepository.getListEmloyee();
         Scanner sc = new Scanner(System.in);
-        String id, name, ngaySinh, email, trinhDo, viTri, luong;
-        boolean gioiTinh;
-        int sdt;
-        System.out.println("---------- ADD NEW EMLOYEE ----------");
-        System.out.print("Nhap id moi: "); id = sc.next();
-        while(isEmployeeCodeValid(id) != true){
-            System.out.print("id khong dung dinh dang NV-YYYY, vui long nhap lai: ");
-            id = sc.next();
+        String id;
+        boolean flag;
+        System.out.println("---------- EDIT EMLOYEE ----------");
+        System.out.print("Nhap id can xoa: ");
+        id = sc.nextLine();
+        for (int i = 0; i < employees.size(); i++) {
+            if (id.equals(employees.get(i).getId())) {
+                System.out.print("Nhap ten moi: ");
+                employees.get(i).setName(sc.nextLine());
+                System.out.print("Nhap ngay sinh moi: ");
+                employees.get(i).setNgaySinh(sc.nextLine());
+                System.out.print("Nhap email moi: ");
+                employees.get(i).setEmail(sc.nextLine());
+                System.out.print("Nhap Gioi Tinh moi: ");
+                employees.get(i).setGioiTinh(sc.nextLine());
+                do {
+                    try {
+                        flag = true;
+                        System.out.print("Nhap sdt moi: ");
+                        employees.get(i).setSdt(Integer.parseInt(sc.nextLine()));
+                    } catch (NumberFormatException e) {
+                        System.out.println("sdt khong hop le, vui long nhap lai!!");
+                        flag = false;
+                    }
+                } while (flag == false);
+                System.out.print("Nhap Vi tri moi: ");
+                employees.get(i).setViTri(sc.nextLine());
+                System.out.print("Nhap trinh do moi: ");
+                employees.get(i).setTrinhDo(sc.nextLine());
+                System.out.print("Nhap luong moi: ");
+                employees.get(i).setLuong(sc.nextLine());
+                employeeRepository.editEmloyee(id, employees);
+                displayEmloyee();
+                break;
+            } else if (i == employees.size() - 1) {
+                System.out.println("khong tim thay");
+            }
         }
-        System.out.print("Nhap ten moi: "); name = sc.next();
-        System.out.print("Nhap ngay sinh moi: "); ngaySinh = sc.next();
-        System.out.print("Nhap email moi: "); email = sc.next();
-        System.out.print("Nhap Gioi Tinh moi: "); gioiTinh = sc.nextBoolean();
-        System.out.print("Nhap sdt moi: "); sdt = sc.nextInt();
-        System.out.print("Nhap Vi tri moi: "); viTri = sc.next();
-        System.out.print("Nhap trinh do moi: "); trinhDo = sc.next();
-        System.out.print("Nhap luong moi: "); luong = sc.next();
-        Employee employee = new Employee(id,name,ngaySinh,email,gioiTinh,sdt,viTri,trinhDo,luong);
-        employeeRepository.editEmloyee(id, employee);
-        displayEmloyee();
     }
 
     public static boolean isEmployeeCodeValid(String employeeCode) {
-        // Kiểm tra xem chuỗi có độ dài là 8 ký tự không
         if (employeeCode.length() != 7) {
             return false;
         }
-
-        // Kiểm tra xem chuỗi bắt đầu bằng "NV-"
         if (!employeeCode.startsWith("NV-")) {
             return false;
         }
-
-        // Kiểm tra xem 4 ký tự sau "NV-" có phải là số không
         for (int i = 3; i < 7; i++) {
-            char ch = employeeCode.charAt(i);
+            char ch = employeeCode.charAt(i); //kiểm tra xem ký tự ch có phải là ký tự số hay không bằng cách
+                                                // sử dụng phương thức Character.isDigit(ch). Nếu ch không phải là ký tự số, điều kiện trong if sẽ đúng.
             if (!Character.isDigit(ch)) {
                 return false;
             }
         }
-
-        // Nếu tất cả các điều kiện đều đúng, mã nhân viên hợp lệ
         return true;
     }
 

@@ -1,4 +1,6 @@
-package com.codegym.case_study.model;
+package com.codegym.case_study.model.person;
+
+import com.codegym.case_study.model.person.Person;
 
 public class Employee extends Person {
     private String trinhDo, viTri, luong;
@@ -11,14 +13,14 @@ public class Employee extends Person {
         this.luong = luong;
     }
 
-    public Employee(String id, String name, String ngaySinh, String email, boolean gioiTinh, int sdt, String trinhDo, String viTri, String luong) {
+    public Employee(String id, String name, String ngaySinh, String email, String gioiTinh, int sdt, String trinhDo, String viTri, String luong) {
         super(id, name, ngaySinh, email, gioiTinh, sdt);
         this.trinhDo = trinhDo;
         this.viTri = viTri;
         this.luong = luong;
     }
 
-    public Employee(String id, String name, String ngaySinh, String email, boolean gioiTinh, int sdt, String luong) {
+    public Employee(String id, String name, String ngaySinh, String email, String gioiTinh, int sdt, String luong) {
         super(id, name, ngaySinh, email, gioiTinh, sdt);
         this.luong = luong;
     }

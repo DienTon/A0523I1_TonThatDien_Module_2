@@ -1,6 +1,8 @@
-package com.codegym.case_study.model;
+package com.codegym.case_study.model.person;
 
-public class Customer extends Person{
+import com.codegym.case_study.model.person.Person;
+
+public class Customer extends Person {
     private String loaiKhach,diaChi;
 
     public Customer() {
@@ -11,7 +13,7 @@ public class Customer extends Person{
         this.diaChi = diaChi;
     }
 
-    public Customer(String id, String name, String ngaySinh, String email, boolean gioiTinh, int sdt, String loaiKhach, String diaChi) {
+    public Customer(String id, String name, String ngaySinh, String email, String gioiTinh, int sdt, String loaiKhach, String diaChi) {
         super(id, name, ngaySinh, email, gioiTinh, sdt);
         this.loaiKhach = loaiKhach;
         this.diaChi = diaChi;
@@ -36,8 +38,8 @@ public class Customer extends Person{
     @Override
     public String toString() {
         return super.toString() +
-                "loaiKhach='" + loaiKhach + '\'' +
-                ", diaChi='" + diaChi + '\'' +
-                ", ";
+                loaiKhach +
+                "," + diaChi
+                ;
     }
 }
